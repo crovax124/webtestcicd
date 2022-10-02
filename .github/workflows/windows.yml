@@ -18,3 +18,9 @@ jobs:
       - run: flutter --version
       - run: flutter config --enable-windows-desktop
       - run: flutter build windows
+      - name: Push to Releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "/build/windows/runner/Release/app-release.exe"
+          tag: WINv1.0.${{ github.run_number }}
+          token: ${{ secrets.TOKEN }}

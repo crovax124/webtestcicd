@@ -18,3 +18,9 @@ jobs:
       - run: flutter --version
       - run: flutter config --enable-macos-desktop
       - run: flutter build macos
+      - name: Push to Releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "/build/macos/Build/Products/Release/webtest.app/Contents/MacOS/webtest.EXEC"
+          tag: MACOSv1.0.${{ github.run_number }}
+          token: ${{ secrets.TOKEN }}
