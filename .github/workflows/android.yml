@@ -23,3 +23,9 @@ jobs:
       - run: flutter test
       - run: flutter build apk
       - run: flutter build appbundle
+      - name: Push to Releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/apk/debug/*"
+          tag: ANDROIDv1.0.${{ github.run_number }}
+          token: ${{ secrets.TOKEN }}
