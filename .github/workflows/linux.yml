@@ -24,6 +24,6 @@ jobs:
       - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "/build/linux/x64/release/bundle/*"
+          artifacts: "build/linux/release/bundle/webtest/*"
           tag: Linuxv1.0.${{ github.run_number }}
           token: ${{ secrets.TOKEN }}
